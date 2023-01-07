@@ -1,0 +1,5 @@
+{
+  "AppName": "WorldCitiesAPI",
+  "Environment": "Development",
+  "CaptureAllExceptions": true
+}
