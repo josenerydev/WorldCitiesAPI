@@ -117,5 +117,18 @@ namespace WorldCitiesAPI.Controllers
         {
             return _context.Cities.Any(e => e.Id == id);
         }
+
+        [HttpPost]
+        [Route("IsDupeCity")]
+        public async Task<ActionResult<bool>> IsDupeCity(City city)
+        {
+            return await _context.Cities.AnyAsync(
+                e => e.Name == city.Name
+                && e.Lat == city.Lat
+                && e.Lon == city.Lon
+                && e.CountryId == city.CountryId
+                && e.Id != city.Id
+            );
+        }
     }
 }
